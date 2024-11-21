@@ -15,7 +15,7 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    breezeOverlay.url = "github:Antares0982/my-breeze-overlay";
+    kdeOverlay.url = "github:Antares0982/my-kde-overlay";
   };
 
   outputs =
@@ -24,7 +24,7 @@
       nixpkgs,
       home-manager,
       agenix,
-      breezeOverlay,
+      kdeOverlay,
       ...
     }@inputs:
     {
@@ -32,11 +32,11 @@
         system = "x86_64-linux";
         specialArgs =
           let
-            _breezeOverlay = breezeOverlay.overlays.default;
+            _kdeOverlay = kdeOverlay.overlays.default;
           in
           {
             inherit agenix;
-            breezeOverlay = _breezeOverlay;
+            kdeOverlay = _kdeOverlay;
           };
         modules = [
           ./packages.nix
