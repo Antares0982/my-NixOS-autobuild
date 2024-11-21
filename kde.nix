@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  breezeOverlay,
+  kdeOverlay,
   ...
 }:
 {
@@ -16,7 +16,7 @@
     };
   };
   nixpkgs.overlays = [
-    breezeOverlay
+    kdeOverlay
   ];
 
   services.desktopManager.plasma6.enable = true;
