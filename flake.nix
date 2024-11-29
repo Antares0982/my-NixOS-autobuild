@@ -16,6 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kdeOverlay.url = "github:Antares0982/my-kde-overlay";
+    nix-rpi5 = {
+      url = "gitlab:vriska/nix-rpi5";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +29,7 @@
       home-manager,
       agenix,
       kdeOverlay,
+      nix-rpi5,
       ...
     }@inputs:
     {
@@ -42,6 +47,15 @@
           ./packages.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
+        ];
+      };
+      nixosConfigurations.rpi5 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit nix-rpi5;
+        };
+        modules = [
+          ./rpi
         ];
       };
     };
