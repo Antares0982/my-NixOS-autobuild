@@ -4,10 +4,7 @@ on:
 
 jobs:
   buildOS:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        arch: [aarch64]
+    runs-on: macos-latest
     steps:
     - name: Checkout
       uses: actions/checkout@main
