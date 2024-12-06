@@ -5,11 +5,6 @@
   nix-rpi5,
   ...
 }:
-let
-  linux_rpi5 = pkgs.callPackage ./linux-rpi.nix {
-    rpiVersion = 5;
-  };
-in
 {
   boot = {
     initrd = {

@@ -18,7 +18,7 @@
     kdeOverlay.url = "github:Antares0982/my-kde-overlay";
     nix-rpi5 = {
       url = "gitlab:vriska/nix-rpi5";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     };
   };
 

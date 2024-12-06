@@ -10,10 +10,13 @@ jobs:
       uses: actions/checkout@main
       with:
         token: '${{ secrets.ACTION_GITHUB_TOKEN }}'
+    - run: sudo apt-get install -y qemu-user-static
     - name: Install nix
       uses: cachix/install-nix-action@master
       with:
         github_access_token: '${{ secrets.ACTION_GITHUB_TOKEN }}'
+        extra_nix_config: |
+          system = aarch64-linux
     - name: Import GPG key
       id: import-gpg
       uses: crazy-max/ghaction-import-gpg@master
