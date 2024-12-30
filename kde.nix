@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  kdeOverlay,
+  my-kde-overlay,
   ...
 }:
 {
@@ -16,7 +16,7 @@
     };
   };
   nixpkgs.overlays = [
-    kdeOverlay
+    my-kde-overlay
   ];
 
   services.desktopManager.plasma6.enable = true;

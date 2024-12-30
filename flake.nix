@@ -3,22 +3,30 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-24-11.url = "github:NixOS/nixpkgs/nixos-24.11";
+    flake-compat.url = "github:edolstra/flake-compat";
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
       url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+    my-kde-overlay = {
+      url = "github:Antares0982/my-kde-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    kdeOverlay.url = "github:Antares0982/my-kde-overlay";
     nix-rpi5 = {
       url = "gitlab:vriska/nix-rpi5";
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+      # use 24.11 to avoid frequent rebuild
+      inputs = {
+        nixpkgs.follows = "nixpkgs-24-11";
+        flake-compat.follows = "flake-compat";
+      };
     };
   };
 
@@ -28,7 +36,7 @@
       nixpkgs,
       home-manager,
       agenix,
-      kdeOverlay,
+      my-kde-overlay,
       nix-rpi5,
       ...
     }@inputs:
@@ -37,11 +45,11 @@
         system = "x86_64-linux";
         specialArgs =
           let
-            _kdeOverlay = kdeOverlay.overlays.default;
+            _kdeOverlay = my-kde-overlay.overlays.default;
           in
           {
             inherit agenix;
-            kdeOverlay = _kdeOverlay;
+            my-kde-overlay = _kdeOverlay;
           };
         modules = [
           ./packages.nix
