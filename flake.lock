@@ -90,11 +90,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734356180,
-        "narHash": "sha256-SYuuVdXF7YNGH1ujipc9DYVaE4uAtOXaYXffs569H/Q=",
+        "lastModified": 1735569563,
+        "narHash": "sha256-UPUnIRadBqIvSvSNgTP5dsS7ZlGOrlqheXuV4sy9eWk=",
         "owner": "Antares0982",
         "repo": "my-kde-overlay",
-        "rev": "6af2fcbec2522796716abbf43333e026cd28881c",
+        "rev": "d44da7e5cad9c6361d90a095e38aca07d8582b70",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1735291276,
-        "narHash": "sha256-NYVcA06+blsLG6wpAbSPTCyLvxD/92Hy4vlY9WxFI1M=",
+        "lastModified": 1735471104,
+        "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "634fd46801442d760e09493a794c4f15db2d0cbb",
+        "rev": "88195a94f390381c6afcdaa933c2f6ff93959cb4",
         "type": "github"
       },
       "original": {
