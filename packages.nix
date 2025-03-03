@@ -14,7 +14,7 @@
     imagemagick
     kdePackages.kdeconnect-kde
     libnotify
-    linuxKernel.packages.linux_libre.perf
+    linuxKernel.packages.linux_zen.perf
     nixfmt-rfc-style
     qbittorrent
     steam-run
