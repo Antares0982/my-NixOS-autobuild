@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  perf = config.boot.kernelPackages.perf;
+in
 {
   imports = [ ./kde.nix ];
   environment.systemPackages = with pkgs; [
@@ -14,8 +17,8 @@
     imagemagick
     kdePackages.kdeconnect-kde
     libnotify
-    linuxKernel.packages.linux_zen.perf
     nixfmt-rfc-style
+    perf
     qbittorrent
     steam-run
     telegram-desktop
@@ -96,9 +99,8 @@
       "kvm-intel"
       "nvidia_drm"
     ];
-    extraModulePackages =
-      [
-      ];
+    extraModulePackages = [
+    ];
     initrd.availableKernelModules = [
       "xhci_pci"
       "ahci"
