@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-24-11.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-for-chrome.url = "github:NixOS/nixpkgs/f771eb401a46846c1aebd20552521b233dd7e18b";
     flake-compat.url = "github:edolstra/flake-compat";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,16 +31,40 @@
         flake-compat.follows = "flake-compat";
       };
     };
+    myXray = {
+      url = "github:Antares0982/rules-dat-xray-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+      };
+    };
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      nixpkgs-24-05,
+      nixpkgs-24-11,
+      nixpkgs-for-chrome,
       home-manager,
       agenix,
       my-kde-overlay,
       nix-rpi5,
+      myXray,
+      wsl,
+      vscode-server,
       ...
     }@inputs:
     {
@@ -64,6 +91,13 @@
         };
         modules = [
           ./rpi
+        ];
+      };
+      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          wsl.nixosModules.wsl
+          ./wsl
         ];
       };
     };
