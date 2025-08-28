@@ -39,7 +39,6 @@
         fcitx5-gtk
       ];
       waylandFrontend = true;
-      plasma6Support = true;
     };
   };
   i18n.supportedLocales = [
