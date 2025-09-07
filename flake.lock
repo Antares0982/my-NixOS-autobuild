@@ -128,11 +128,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757154095,
-        "narHash": "sha256-L0qeS62ZJ65F2Gwl1qqtlljOkH0z2PLwltTTeYDmsbk=",
+        "lastModified": 1757240520,
+        "narHash": "sha256-yYe50h8QudaOV+9rQeuVHd6+Zxy0uzswd2+Gk4yA+gc=",
         "owner": "Antares0982",
         "repo": "rules-dat-xray-flake",
-        "rev": "74155ff9470efadd26a0b3620c189588ab0e6d98",
+        "rev": "bb3edc6eae9f5d2197d18cfffa4c020842e7fb1c",
         "type": "github"
       },
       "original": {
@@ -166,11 +166,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1756787288,
-        "narHash": "sha256-rw/PHa1cqiePdBxhF66V7R+WAP8WekQ0mCDG4CFqT8Y=",
+        "lastModified": 1757068644,
+        "narHash": "sha256-NOrUtIhTkIIumj1E/Rsv1J37Yi3xGStISEo8tZm3KW4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d0fc30899600b9b3466ddb260fd83deb486c32f1",
+        "rev": "8eb28adfa3dc4de28e792e3bf49fcf9007ca8ac9",
         "type": "github"
       },
       "original": {
