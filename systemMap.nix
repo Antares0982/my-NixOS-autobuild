@@ -1,7 +1,6 @@
 {
   nixpkgs,
-  nixpkgs-24-05,
-  nixpkgs-24-11,
+  nixpkgs-old,
   nixpkgs-for-chrome,
   agenix,
   lib,
@@ -35,8 +34,7 @@ in
       }).pkgs;
     myXray = xray.packages.${system}.default;
     needVSCodeServer = currentDevice.rpi or false;
-    pkgs-24-05 = nixpkgsToPkgs nixpkgs-24-05;
-    pkgs-24-11 = nixpkgsToPkgs nixpkgs-24-11;
+    pkgs-old = nixpkgsToPkgs nixpkgs-old;
     pkgs-for-chrome = nixpkgsToPkgs nixpkgs-for-chrome;
   in
   nixpkgs.lib.nixosSystem {
@@ -47,8 +45,7 @@ in
           agenix
           currentDevice
           myXray
-          pkgs-24-05
-          pkgs-24-11
+          pkgs-old
           pkgs-for-chrome
           ;
       }

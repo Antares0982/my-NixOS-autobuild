@@ -3,8 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-24-11.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-for-chrome.url = "github:NixOS/nixpkgs/f771eb401a46846c1aebd20552521b233dd7e18b";
     flake-compat.url = "github:edolstra/flake-compat";
     flake-utils.url = "github:numtide/flake-utils";
@@ -25,9 +24,9 @@
     };
     nix-rpi5 = {
       url = "gitlab:vriska/nix-rpi5";
-      # use 24.11 to avoid frequent rebuild
+      # use nixpkgs-old to avoid frequent rebuild
       inputs = {
-        nixpkgs.follows = "nixpkgs-24-11";
+        nixpkgs.follows = "nixpkgs-old";
         flake-compat.follows = "flake-compat";
       };
     };
@@ -55,8 +54,7 @@
     {
       self,
       nixpkgs,
-      nixpkgs-24-05,
-      nixpkgs-24-11,
+      nixpkgs-old,
       nixpkgs-for-chrome,
       home-manager,
       agenix,

@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  perf = config.boot.kernelPackages.perf;
-in
 {
   imports = [ ./kde.nix ];
   environment.systemPackages = with pkgs; [
