@@ -128,11 +128,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765707977,
-        "narHash": "sha256-EmI+PPTy5BUXiOdrnPySgglKKib/4uhpAYLA0NhsI1s=",
+        "lastModified": 1765794843,
+        "narHash": "sha256-adNRkbA1b1c576hesrNYajd2mt27ek2ZMwEG/ny0wTg=",
         "owner": "Antares0982",
         "repo": "rules-dat-xray-flake",
-        "rev": "4bf09295c5bfac38a3199bc857e332ec0c07bb15",
+        "rev": "5383baa28eba8cbc4105ec054c830d804c0e64e4",
         "type": "github"
       },
       "original": {
