@@ -48,6 +48,14 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    pull-all = {
+      url = "github:Antares0982/pull-all";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    renewal = {
+      url = "github:Antares0982/renewal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -63,10 +71,12 @@
       myXray,
       wsl,
       vscode-server,
+      pull-all,
+      renewal,
       ...
     }@inputs:
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs =
           let
@@ -75,6 +85,8 @@
           {
             inherit agenix;
             my-kde-overlay = _kdeOverlay;
+            pull-all = pull-all.packages.${system}.default;
+            renewal = renewal.packages.${system}.default;
           };
         modules = [
           ./packages.nix

@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  pull-all,
+  renewal,
   ...
 }:
 {
@@ -16,7 +18,9 @@
     libnotify
     nixfmt-rfc-style
     perf
+    pull-all
     qbittorrent
+    renewal
     steam-run
     telegram-desktop
     thunderbird

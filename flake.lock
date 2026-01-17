@@ -212,6 +212,46 @@
         "type": "github"
       }
     },
+    "pull-all": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768652585,
+        "narHash": "sha256-mEG65eL6BLdxzBmD3izk0XWMGYTrc3ANYOevZOaDXmg=",
+        "owner": "Antares0982",
+        "repo": "pull-all",
+        "rev": "1856fefcfd9f672f05fad96547429e0a222ea35e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Antares0982",
+        "repo": "pull-all",
+        "type": "github"
+      }
+    },
+    "renewal": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767720231,
+        "narHash": "sha256-bOztNumrRklnBrYOrYEQFFvwf0ipEeeX6+tRr8jzNlQ=",
+        "owner": "Antares0982",
+        "repo": "renewal",
+        "rev": "a175d5bf417e1c4d8e0194d48103c318283a5da8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Antares0982",
+        "repo": "renewal",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -224,6 +264,8 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-for-chrome": "nixpkgs-for-chrome",
         "nixpkgs-old": "nixpkgs-old",
+        "pull-all": "pull-all",
+        "renewal": "renewal",
         "vscode-server": "vscode-server",
         "wsl": "wsl"
       }
