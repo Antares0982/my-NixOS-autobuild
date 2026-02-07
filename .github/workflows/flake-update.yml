@@ -40,7 +40,7 @@ jobs:
         sudo systemctl restart nix-daemon
     - name: Import GPG key
       id: import-gpg
-      uses: crazy-max/ghaction-import-gpg@master
+      uses: crazy-max/ghaction-import-gpg@v6
       with:
         gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
