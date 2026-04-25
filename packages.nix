@@ -16,7 +16,6 @@
     imagemagick
     kdePackages.kdeconnect-kde
     libnotify
-    nixfmt-rfc-style
     perf
     pull-all
     qbittorrent
@@ -25,7 +24,6 @@
     telegram-desktop
     thunderbird
     tor-browser
-    xorg.xeyes
     ydotool
   ];
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
