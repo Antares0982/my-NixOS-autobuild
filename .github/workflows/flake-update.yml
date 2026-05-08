@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 11 * * *'
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -19,12 +22,10 @@ jobs:
     #     remove-docker-images: 'true'
     - name: Checkout
       uses: actions/checkout@main
-      with:
-        token: '${{ secrets.ACTION_GITHUB_TOKEN }}'
     - name: Install nix
       uses: cachix/install-nix-action@master
       with:
-        github_access_token: '${{ secrets.ACTION_GITHUB_TOKEN }}'
+        github_access_token: '${{ secrets.GITHUB_TOKEN }}'
     - name: Set nix daemon tmp path
       run: |
         sudo mkdir --parents /nix/tmp
@@ -38,18 +39,6 @@ jobs:
         sudo mv override.conf /etc/systemd/system/nix-daemon.service.d/override.conf
         sudo systemctl daemon-reload
         sudo systemctl restart nix-daemon
-    - name: Import GPG key
-      id: import-gpg
-      uses: crazy-max/ghaction-import-gpg@v6
-      with:
-        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
-        git_user_signingkey: true
-        git_commit_gpgsign: true
-    - name: Configure git credentials
-      run: |
-        git config --global user.email "${{ steps.import-gpg.outputs.email }}"
-        git config --global user.name "${{ steps.import-gpg.outputs.name }}"
     - name: Setup cachix
       uses: cachix/cachix-action@master
       with:
