@@ -39,6 +39,10 @@ jobs:
         sudo mv override.conf /etc/systemd/system/nix-daemon.service.d/override.conf
         sudo systemctl daemon-reload
         sudo systemctl restart nix-daemon
+    - name: Configure git
+      run: |
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
     - name: Setup cachix
       uses: cachix/cachix-action@master
       with:
